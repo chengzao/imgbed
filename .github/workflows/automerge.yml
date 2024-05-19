@@ -17,20 +17,15 @@ on:
   check_suite:
     types:
       - completed
-  status: {}  
+  status: {}
 
 jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
       - name: automerge
-        uses: "pascalgn/automerge-action@v0.14.2"
+        uses: "pascalgn/automerge-action@v0.16.3"
+        permissions:
+          contents: write
         env:
           GITHUB_TOKEN: "${{ secrets.ACTION_MERGE_TOKEN }}"
-          MERGE_LABELS: ""
-          MERGE_METHOD: "squash"
-          MERGE_COMMIT_MESSAGE: "pull-request-description"
-          MERGE_FORKS: "false"
-          MERGE_RETRIES: "2"
-          MERGE_RETRY_SLEEP: "10000"
-          UPDATE_METHOD: "rebase"
